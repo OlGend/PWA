@@ -2755,7 +2755,6 @@ function TopBrands({ newUrl, ipDataCode, currentLanguage, source, selectedCountr
             setIsLoading(true);
             try {
                 const url = source === "partner1039" ? apiNew : apiOld;
-                console.log("URL", url);
                 const res = await fetch(url);
                 if (res.ok) {
                     const responseData = await res.json();

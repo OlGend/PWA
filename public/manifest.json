@@ -20,7 +20,7 @@
     ],
     "theme_color": "#FFFFFF",
     "background_color": "#FFFFFF",
-    "start_url": "https://pwa-swart-two.vercel.app",
+    "start_url": "/",
     "id": "/",
     "display": "standalone",
     "orientation": "portrait"
