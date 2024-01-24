@@ -23,6 +23,16 @@
     "start_url": "/",
     "id": "/",
     "display": "standalone",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "protocol_handlers": [
+      {
+        "protocol": "web+pwa",
+        "url": "https://www.xxxcasinoguru.com/?pwaprotocolredirect=%s"
+      },
+      {
+        "protocol": "web+zrbxeckd",
+        "url": "https://www.xxxcasinoguru.com/?pwaprotocolredirect=%s"
+      }
+    ]
   }
-
+  
