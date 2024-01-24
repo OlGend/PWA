@@ -27,11 +27,11 @@
     "protocol_handlers": [
       {
         "protocol": "web+pwa",
-        "url": "https://www.xxxcasinoguru.com/?pwaprotocolredirect=%s"
+        "url": "/"
       },
       {
         "protocol": "web+zrbxeckd",
-        "url": "https://www.xxxcasinoguru.com/?pwaprotocolredirect=%s"
+        "url": "/"
       }
     ]
   }
