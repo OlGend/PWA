@@ -1,13 +1,16 @@
 {
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
-  "start_url": "/",
-  "id": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "name": "My awesome PWA app",
   "short_name": "PWA App",
-  "description": "A random advice generator",
+  "dir": "auto",
+  "name": "My awesome PWA app",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "https://pwa-swart-two.vercel.app",
+  "scope": "https://pwa-swart-two.vercel.app",
+  "id": "https://pwa-swart-two.vercel.app/sdjjjsdjffdmsk",
+  "prefer_related_applications": false,
+  "related_applications": [],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -23,6 +26,16 @@
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+pwa",
+      "url": "https://pwa-swart-two.vercel.app/?pwaprotocolredirect=%s"
+    },
+    {
+      "protocol": "web+zrbxeckd",
+      "url": "https://pwa-swart-two.vercel.app/?pwaprotocolredirect=%s"
     }
   ]
 }
