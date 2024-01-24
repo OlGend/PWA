@@ -26,6 +26,15 @@ const {
           // This is for fonts.
           font: "/fallback-font.woff2",
         },
+        customWorkerSrc: "service-worker",
+        customWorkerDest: "somewhere-else", // defaults to `dest`
+        customWorkerPrefix: "not/a-worker",
+        extendDefaultRuntimeCaching: true,
+        workboxOptions: {
+          runtimeCaching: [
+            // Your runtimeCaching array
+          ],
+        },
       });
       return withPWA(nextConfig);
     }
