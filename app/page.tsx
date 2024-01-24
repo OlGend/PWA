@@ -122,6 +122,7 @@ export default function Home() {
   };
 
 
+  console.log("URL", newUrl)
   return (
     <div>
       <TopBrands

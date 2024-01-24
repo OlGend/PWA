@@ -18,7 +18,6 @@ const TheHeader = () => {
 
   const [user, setUser] = useState([]);
   const [newUrl, setNewUrl] = useState("");
-  // const urlParams = new URLSearchParams(window.location.search);
   const urlParams = new URLSearchParams(
     typeof window !== "undefined" ? window.location.search : ""
   );
@@ -26,6 +25,16 @@ const TheHeader = () => {
   const [ipDataCode, setIpDataCode] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  console.log("!!!!", user)
+
+
+  useEffect(() => {
+    // Check if user data is not empty before storing in localStorage
+    if (Object.keys(user).length > 0) {
+       localStorage.setItem("userData", JSON.stringify(user));
+    }
+  }, [user]);
 
   const menuContainerRef = useRef(null);
 
@@ -130,7 +139,9 @@ const TheHeader = () => {
     };
   }, [handleBalanceChange]);
 
-  console.log("__________", showAdditionalOptions);
+  const storedUserData = localStorage.getItem("userData");
+  const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
+  console.log("!!!!", localStorageUser)
 
   return (
     <header>
@@ -140,7 +151,7 @@ const TheHeader = () => {
         </Link>
         {!isMobile ? (
           <div className="flex ml-auto items-center">
-            {Object.keys(user).length > 0 && (
+            {localStorageUser && (
               <div className="tickets">
                 <Link href={`/fortunewheel/${newUrl}`}>
                   <Image
@@ -150,19 +161,19 @@ const TheHeader = () => {
                     height={26}
                     loading="lazy"
                   />
-                  {t("Wheel of Fortune")} <span>{user.tickets}</span>
+                  {t("Wheel of Fortune")} <span>{localStorageUser.tickets}</span>
                 </Link>
               </div>
             )}
             <div className="relative">
-              {Object.keys(user).length > 0 && (
+              {localStorageUser && (
                 <div className="parent">
                   <div
                     className="option flex items-center"
-                    value={user.balance}
+                    value={localStorageUser.balance}
                     onClick={handleBalanceChange}
                   >
-                    {t("Balance")}: {user.balance} USD
+                    {t("Balance")}: {localStorageUser.balance} USD
                     <Image
                       src={arrow}
                       alt={arrow}
@@ -201,7 +212,7 @@ const TheHeader = () => {
         ) : (
           <div className="flex ml-auto items-center">
             <div className="mobile-menu">
-              {Object.keys(user).length > 0 && (
+              {localStorageUser && (
                 <div className="flex items-center">
                   <Link
                     href={`/withdrawal/${newUrl}`}
@@ -215,7 +226,7 @@ const TheHeader = () => {
                         loading="lazy"
                       />
                     {/* <img src={`.${wallet}`} alt={wallet} /> */}
-                    <p>{user.balance} USD</p>
+                    <p>{localStorageUser.balance} USD</p>
                   </Link>
                   <div
                     className="btn-menu"
@@ -231,13 +242,13 @@ const TheHeader = () => {
                         loading="lazy"
                       />
                     {/* <img src={`.${profile}`} alt={profile} /> */}
-                    <strong className="ticketspoint">{user.tickets}</strong>
+                    <strong className="ticketspoint">{localStorageUser.tickets}</strong>
                   </div>
                 </div>
               )}
               {isMenuOpen && (
                 <div className="list-menu">
-                  {Object.keys(user).length > 0 && ( // Проверяем, есть ли данные в user
+                  {localStorageUser && ( // Проверяем, есть ли данные в user
                     <Link
                       href={`/withdrawal/${newUrl}`}
                       className="balanceWithdraw"
@@ -249,11 +260,11 @@ const TheHeader = () => {
                         loading="lazy"
                         className="mr-1" />
                       {/* <img className="mr-1" src={`.${wallet}`} alt={wallet} /> */}
-                      {t("Withdraw")} <span>{user.balance} USD</span>
+                      {t("Withdraw")} <span>{localStorageUser.balance} USD</span>
                     </Link>
                   )}
                   <div className="mobile-menu-content">
-                    {Object.keys(user).length > 0 && (
+                    {localStorageUser && (
                       <Link
                         href={`/fortunewheel/${newUrl}`}
                         className="balanceWithdraw"
@@ -265,7 +276,7 @@ const TheHeader = () => {
                         loading="lazy"
                         className="mr-1" />
                         {/* <img className="mr-1" src={`.${dollar}`} alt={dollar} /> */}
-                        {t("Wheel of Fortune")} <span>{user.tickets}</span>
+                        {t("Wheel of Fortune")} <span>{localStorageUser.tickets}</span>
                       </Link>
                     )}
                     {/* Другие элементы меню для мобильного вида */}

@@ -1,7 +1,6 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/fortunewheel/page": "app/fortunewheel/page.js",
   "/page": "app/page.js",
-  "/withdrawal/page": "app/withdrawal/page.js"
+  "/fortunewheel/page": "app/fortunewheel/page.js",
+  "/withdrawal/page": "app/withdrawal/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
