@@ -1,38 +1,28 @@
 {
-  "short_name": "MAW",
-  "dir": "auto",
-  "name": "MAW",
-  "background_color": "#030654",
-  "theme_color": "#030654",
-  "display": "standalone",
-  "orientation": "any",
-  "start_url": "https://www.xxxcasinoguru.com",
-  "scope": "https://www.xxxcasinoguru.com",
-  "id": "https://www.xxxcasinoguru.com/w71Ukncac2e9ljfS9kMw",
-  "prefer_related_applications": false,
-  "related_applications": [],
-  "icons": [
-    {
-      "src": "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/d4ou8XvMW75jSIw9mGxK%2FvcNSKtOJlOFncKg.png?alt=media&token=4b286e72-79bb-4249-b9e7-f11c0d74d90d",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/d4ou8XvMW75jSIw9mGxK%2FpsrKznbLFCdNjBr.png?alt=media&token=c3854073-5aa5-4501-a902-9f663bd93c1b",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "protocol_handlers": [
-    {
-      "protocol": "web+pwa",
-      "url": "https://www.xxxcasinoguru.com/?pwaprotocolredirect=%s"
-    },
-    {
-      "protocol": "web+zrbxeckd",
-      "url": "https://www.xxxcasinoguru.com/?pwaprotocolredirect=%s"
-    }
-  ]
-}
+    "name": "My awesome PWA app",
+    "short_name": "PWA App",
+    "icons": [
+      {
+        "src": "/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/android-chrome-384x384.png",
+        "sizes": "384x384",
+        "type": "image/png"
+      },
+      {
+        "src": "/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "id": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
+
