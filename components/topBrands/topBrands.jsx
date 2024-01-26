@@ -147,6 +147,7 @@ function TopBrands({
   };
   function closereg() {
     setModal(false);
+    
   }
 
  
