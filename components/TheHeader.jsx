@@ -141,7 +141,7 @@ const TheHeader = () => {
 
   const storedUserData = localStorage.getItem("userData");
   const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
-  console.log("!!!!", localStorageUser)
+
 
   return (
     <header>

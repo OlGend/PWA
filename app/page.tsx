@@ -9,11 +9,9 @@ import TopBrandsOfYear from "@/components/TopBrandsOfYear/TopBrandsOfYear";
 import DoubleBrands from "@/components/DoubleBrands/DoubleBrands";
 import DoubleBrands2 from "@/components/DoubleBrands2/DoubleBrands2";
 
-
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
-
   const [ipData, setIpData] = useState(null);
   const [ipDataCode, setIpDataCode] = useState(null);
   const [newUrl, setNewUrl] = useState("");
@@ -21,6 +19,21 @@ export default function Home() {
   const [userField, setUserField] = useState<string>("");
 
   const [selectedCountry, setSelectedCountry] = useState("");
+
+  // Получаем текущий URL
+  const currentUrl = window.location.href;
+
+  // Определяем позицию символа "?"
+  const indexOfQuestionMark = currentUrl.indexOf("?");
+
+  // Если "?" найден, обрезаем URL до символа "?"
+  const newUrl2 =
+    indexOfQuestionMark !== -1
+      ? currentUrl.substring(0, indexOfQuestionMark)
+      : currentUrl;
+
+  // Обновляем URL
+  window.history.replaceState({}, document.title, newUrl2);
 
   const { t, i18n } = useTranslation();
 
@@ -63,7 +76,6 @@ export default function Home() {
         setIpData(data.country_name);
         setIpDataCode(data.country);
         setSelectedCountry(data.country.toLowerCase());
-      
       })
       .catch((error) => {
         console.error("Ошибка при запросе к API:", error);
@@ -80,10 +92,7 @@ export default function Home() {
     const currentSource: string | null = searchParams.get("keyword");
     setUserField(currentSource !== null ? currentSource : "");
 
-    if (
-      currentSource !== null &&
-      (currentSource.includes("partner1039"))
-    ) {
+    if (currentSource !== null && currentSource.includes("partner1039")) {
       // Если в строке есть "partner1039" или "partner1041", вырезаем и добавляем в setSource
       const partnerIndex = currentSource.indexOf("partner");
       const partnerText = currentSource.substring(
@@ -104,10 +113,12 @@ export default function Home() {
 
     // Удаляем "source" из searchParams
     // searchParams.delete("source");
-
+    const storedUserData = localStorage.getItem("userData");
+    const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
     // Добавить source в новый URL только если он существует
+    const userId = localStorageUser?.id ?? "";
     const newUrl =
-      "?" +
+      "?" + "keyword=" + userId + "&" +
       (searchParams.toString() ? searchParams.toString() + "&" : "") +
       "creative_id=MAW";
 
@@ -121,8 +132,7 @@ export default function Home() {
     localStorage.setItem("selectedCountry", country);
   };
 
-
-  console.log("URL", newUrl)
+  console.log("URL", newUrl);
   return (
     <div>
       <TopBrands
@@ -179,8 +189,8 @@ export default function Home() {
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
         userField={userField}
-      /> 
-      
+      />
+
       <div className="doublebrands">
         <div className="another-brands">
           <div className="other-brands">

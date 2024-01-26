@@ -151,7 +151,8 @@ function TopBrands({
 
  
 
-
+  const storedUserData = localStorage.getItem("userData");
+  const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
 
   return (
     <div className="bg1">
@@ -196,9 +197,9 @@ function TopBrands({
                         <a
                           id="top_brand"
                           target="_blank"
-                          onClick={userField === "" ? reg : undefined}
+                          onClick={localStorageUser === null ? reg : undefined}
                           href={
-                            userField === ""
+                            localStorageUser === null
                               ? undefined
                               : rowData["GoBig"] + newUrl
                           }
@@ -212,9 +213,9 @@ function TopBrands({
                           id="top_brand"
                           className="btn btn-primary big-btn"
                           target="_blank"
-                          onClick={userField === "" ? reg : undefined}
+                          onClick={localStorageUser === null ? reg : undefined}
                           href={
-                            userField === ""
+                            localStorageUser === null
                               ? undefined
                               : rowData["GoBig"] + newUrl
                           }
@@ -234,9 +235,9 @@ function TopBrands({
                         <a
                           id="top_brand"
                           target="_blank"
-                          onClick={userField === "" ? reg : undefined}
+                          onClick={localStorageUser === null ? reg : undefined}
                           href={
-                            userField === ""
+                            localStorageUser === null
                               ? undefined
                               : rowData["GoBig"] + newUrl
                           }
@@ -250,9 +251,9 @@ function TopBrands({
                           id="top_brand"
                           className="btn btn-primary big-btn"
                           target="_blank"
-                          onClick={userField === "" ? reg : undefined}
+                          onClick={localStorageUser === null ? reg : undefined}
                           href={
-                            userField === ""
+                            localStorageUser === null
                               ? undefined
                               : rowData["GoBig"] + newUrl
                           }
@@ -275,9 +276,9 @@ function TopBrands({
                       <a
                         id="top_brand"
                         target="_blank"
-                        onClick={userField === "" ? reg : undefined}
+                        onClick={localStorageUser === null ? reg : undefined}
                         href={
-                          userField === ""
+                          localStorageUser === null
                             ? undefined
                             : rowData["GoBig"] + newUrl
                         }
@@ -291,9 +292,9 @@ function TopBrands({
                         id="top_brand"
                         className="btn btn-primary big-btn"
                         target="_blank"
-                        onClick={userField === "" ? reg : undefined}
+                        onClick={localStorageUser === null ? reg : undefined}
                         href={
-                          userField === ""
+                          localStorageUser === null
                             ? undefined
                             : rowData["GoBig"] + newUrl
                         }
@@ -313,9 +314,9 @@ function TopBrands({
                     <a
                       id="top_brand"
                       target="_blank"
-                      onClick={userField === "" ? reg : undefined}
+                      onClick={localStorageUser === null ? reg : undefined}
                       href={
-                        userField === "" ? undefined : rowData["GoBig"] + newUrl
+                        localStorageUser === null ? undefined : rowData["GoBig"] + newUrl
                       }
                     >
                       <img src={rowData["LinkImg"]} alt="" />
@@ -327,9 +328,9 @@ function TopBrands({
                       id="top_brand"
                       className="btn btn-primary big-btn"
                       target="_blank"
-                      onClick={userField === "" ? reg : undefined}
+                      onClick={localStorageUser === null ? reg : undefined}
                       href={
-                        userField === "" ? undefined : rowData["GoBig"] + newUrl
+                        localStorageUser === null ? undefined : rowData["GoBig"] + newUrl
                       }
                     >
                       {t("proceed")}

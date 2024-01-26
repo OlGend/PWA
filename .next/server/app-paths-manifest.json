@@ -1,6 +1,4 @@
 {
   "/page": "app/page.js",
-  "/fortunewheel/page": "app/fortunewheel/page.js",
-  "/withdrawal/page": "app/withdrawal/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }

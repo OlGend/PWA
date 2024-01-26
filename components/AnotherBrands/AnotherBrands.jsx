@@ -112,6 +112,9 @@ function AnotherBrands({
     setModal(false);
   }
 
+  const storedUserData = localStorage.getItem("userData");
+  const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
+
   return (
     <div>
       {modal && (
