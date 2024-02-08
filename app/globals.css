@@ -18,6 +18,12 @@ p {
   margin: 10px 0 30px;
   line-height: 20px;
 }
+.unsubscribed {
+  min-height: calc(100vh - 250px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .App {
   text-align: center;
 }
