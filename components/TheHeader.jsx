@@ -139,8 +139,16 @@ const TheHeader = () => {
     };
   }, [handleBalanceChange]);
 
-  const storedUserData = localStorage.getItem("userData");
-  const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
+  const [anotherState, setAnotherState] = useState({})
+
+  useEffect(() => {
+    // Проверяем доступность окружения браузера
+    if (typeof window !== "undefined") {
+      const storedUserData = localStorage.getItem("userData");
+      const localStorageUser = storedUserData ? JSON.parse(storedUserData) : null;
+      setAnotherState(localStorageUser);
+    }
+  }, []);
 
 
   return (
@@ -151,7 +159,7 @@ const TheHeader = () => {
         </Link>
         {!isMobile ? (
           <div className="flex ml-auto items-center">
-            {localStorageUser && (
+            {anotherState && (
               <div className="tickets">
                 <Link href={`/fortunewheel/${newUrl}`}>
                   <Image
@@ -161,19 +169,19 @@ const TheHeader = () => {
                     height={26}
                     loading="lazy"
                   />
-                  {t("Wheel of Fortune")} <span>{localStorageUser.tickets}</span>
+                  {t("Wheel of Fortune")} <span>{anotherState.tickets}</span>
                 </Link>
               </div>
             )}
             <div className="relative">
-              {localStorageUser && (
+              {anotherState && (
                 <div className="parent">
                   <div
                     className="option flex items-center"
-                    value={localStorageUser.balance}
+                    value={anotherState.balance}
                     onClick={handleBalanceChange}
                   >
-                    {t("Balance")}: {localStorageUser.balance} USD
+                    {t("Balance")}: {anotherState.balance} USD
                     <Image
                       src={arrow}
                       alt={arrow}
@@ -212,7 +220,7 @@ const TheHeader = () => {
         ) : (
           <div className="flex ml-auto items-center">
             <div className="mobile-menu">
-              {localStorageUser && (
+              {anotherState && (
                 <div className="flex items-center">
                   <Link
                     href={`/withdrawal/${newUrl}`}
@@ -226,7 +234,7 @@ const TheHeader = () => {
                         loading="lazy"
                       />
                     {/* <img src={`.${wallet}`} alt={wallet} /> */}
-                    <p>{localStorageUser.balance} USD</p>
+                    <p>{anotherState.balance} USD</p>
                   </Link>
                   <div
                     className="btn-menu"
@@ -242,13 +250,13 @@ const TheHeader = () => {
                         loading="lazy"
                       />
                     {/* <img src={`.${profile}`} alt={profile} /> */}
-                    <strong className="ticketspoint">{localStorageUser.tickets}</strong>
+                    <strong className="ticketspoint">{anotherState.tickets}</strong>
                   </div>
                 </div>
               )}
               {isMenuOpen && (
                 <div className="list-menu">
-                  {localStorageUser && ( // Проверяем, есть ли данные в user
+                  {anotherState && ( // Проверяем, есть ли данные в user
                     <Link
                       href={`/withdrawal/${newUrl}`}
                       className="balanceWithdraw"
@@ -260,11 +268,11 @@ const TheHeader = () => {
                         loading="lazy"
                         className="mr-1" />
                       {/* <img className="mr-1" src={`.${wallet}`} alt={wallet} /> */}
-                      {t("Withdraw")} <span>{localStorageUser.balance} USD</span>
+                      {t("Withdraw")} <span>{anotherState.balance} USD</span>
                     </Link>
                   )}
                   <div className="mobile-menu-content">
-                    {localStorageUser && (
+                    {anotherState && (
                       <Link
                         href={`/fortunewheel/${newUrl}`}
                         className="balanceWithdraw"
@@ -276,7 +284,7 @@ const TheHeader = () => {
                         loading="lazy"
                         className="mr-1" />
                         {/* <img className="mr-1" src={`.${dollar}`} alt={dollar} /> */}
-                        {t("Wheel of Fortune")} <span>{localStorageUser.tickets}</span>
+                        {t("Wheel of Fortune")} <span>{anotherState.tickets}</span>
                       </Link>
                     )}
                     {/* Другие элементы меню для мобильного вида */}
