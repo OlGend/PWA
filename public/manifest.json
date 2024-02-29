@@ -7,6 +7,7 @@
   "display": "standalone",
   "orientation": "any",
   "start_url": "/",
+  "offline_enabled": true,
   "scope": "https://pwa-swart-two.vercel.app",
   "id": "https://pwa-swart-two.vercel.app/sdjjjsdjffdmsk",
   "prefer_related_applications": false,
