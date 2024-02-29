@@ -6,7 +6,7 @@
   "theme_color": "#FFFFFF",
   "display": "standalone",
   "orientation": "any",
-  "start_url": "https://pwa-swart-two.vercel.app",
+  "start_url": "/",
   "scope": "https://pwa-swart-two.vercel.app",
   "id": "https://pwa-swart-two.vercel.app/sdjjjsdjffdmsk",
   "prefer_related_applications": false,
