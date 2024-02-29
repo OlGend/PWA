@@ -32,16 +32,16 @@ export default function RootLayout({
           sizes="152x152"
           href="/icons/touch-icon-ipad.png"
         />
-        <link
+        {/* <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/icons/touch-icon-iphone-retina.png"
-        />
-        <link
+        /> */}
+        {/* <link
           rel="apple-touch-icon"
           sizes="167x167"
           href="/icons/touch-icon-ipad-retina.png"
-        />
+        /> */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content="https://yourdomain.com" />
@@ -56,7 +56,7 @@ export default function RootLayout({
         <meta property="og:url" content="https://yourdomain.com" />
         <meta property="og:image" content="/icons/og.png" />
         {/* add the following only if you want to add a startup image for Apple devices. */}
-        <link
+        {/* <link
           rel="apple-touch-startup-image"
           href="/images/apple_splash_2048.png"
           sizes="2048x2732"
@@ -90,7 +90,7 @@ export default function RootLayout({
           rel="apple-touch-startup-image"
           href="/images/apple_splash_640.png"
           sizes="640x1136"
-        />
+        /> */}
       </head>
       <body>
         <Script id="customerio" type="text/javascript">
