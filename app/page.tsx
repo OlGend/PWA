@@ -20,22 +20,25 @@ export default function Home() {
 
   const [selectedCountry, setSelectedCountry] = useState("");
 
-  // Получаем текущий URL
-  // const currentUrl = window.location.href;
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-
-
-  // Определяем позицию символа "?"
-  const indexOfQuestionMark = currentUrl.indexOf("?");
-
-  // Если "?" найден, обрезаем URL до символа "?"
-  const newUrl2 =
-    indexOfQuestionMark !== -1
-      ? currentUrl.substring(0, indexOfQuestionMark)
-      : currentUrl;
-
-  // Обновляем URL
-  window.history.replaceState({}, document.title, newUrl2);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Получаем текущий URL
+      const currentUrl = window.location.href;
+  
+      // Определяем позицию символа "?"
+      const indexOfQuestionMark = currentUrl.indexOf("?");
+  
+      // Если "?" найден, обрезаем URL до символа "?"
+      const newUrl2 =
+        indexOfQuestionMark !== -1
+          ? currentUrl.substring(0, indexOfQuestionMark)
+          : currentUrl;
+  
+      // Обновляем URL
+      window.history.replaceState({}, document.title, newUrl2);
+    }
+  }, []);
+  
 
   const { t, i18n } = useTranslation();
 
