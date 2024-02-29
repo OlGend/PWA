@@ -20,20 +20,22 @@ export default function Home() {
 
   const [selectedCountry, setSelectedCountry] = useState("");
 
-  // Получаем текущий URL
-  const currentUrl = window.location.href;
+  useEffect(() => {
+    // Получаем текущий URL
+    const currentUrl = window.location.href;
 
-  // Определяем позицию символа "?"
-  const indexOfQuestionMark = currentUrl.indexOf("?");
+    // Определяем позицию символа "?"
+    const indexOfQuestionMark = currentUrl.indexOf("?");
 
-  // Если "?" найден, обрезаем URL до символа "?"
-  const newUrl2 =
-    indexOfQuestionMark !== -1
-      ? currentUrl.substring(0, indexOfQuestionMark)
-      : currentUrl;
+    // Если "?" найден, обрезаем URL до символа "?"
+    const newUrl2 =
+      indexOfQuestionMark !== -1
+        ? currentUrl.substring(0, indexOfQuestionMark)
+        : currentUrl;
 
-  // Обновляем URL
-  window.history.replaceState({}, document.title, newUrl2);
+    // Обновляем URL
+    window.history.replaceState({}, document.title, newUrl2);
+  });
 
   const { t, i18n } = useTranslation();
 
@@ -118,7 +120,10 @@ export default function Home() {
     // Добавить source в новый URL только если он существует
     const userId = localStorageUser?.id ?? "";
     const newUrl =
-      "?" + "keyword=" + userId + "&" +
+      "?" +
+      "keyword=" +
+      userId +
+      "&" +
       (searchParams.toString() ? searchParams.toString() + "&" : "") +
       "creative_id=MAW";
 
