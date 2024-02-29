@@ -21,7 +21,9 @@ export default function Home() {
   const [selectedCountry, setSelectedCountry] = useState("");
 
   // Получаем текущий URL
-  const currentUrl = window.location.href;
+  // const currentUrl = window.location.href;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+
 
   // Определяем позицию символа "?"
   const indexOfQuestionMark = currentUrl.indexOf("?");
